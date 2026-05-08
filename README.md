@@ -1,7 +1,7 @@
 # FedMIA: Privacy and Membership Inference Attack in Federated Learning
 
 **Category**: Cat. 1 – Privacy & Inference  
-**Course**: Federated Learning Term Paper | Jan–April 2026 | BDS  
+**Course**: Federated Learning Term Paper | Jan–April 2026 
 **Framework**: [Flower (flwr)](https://flower.ai) — gRPC mode (no Ray, works on Windows)
 
 ---
