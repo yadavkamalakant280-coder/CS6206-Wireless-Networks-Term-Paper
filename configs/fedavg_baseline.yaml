@@ -1,0 +1,40 @@
+# configs/fedavg_baseline.yaml
+# Universal Baseline — FedAvg (McMahan et al., 2017)
+# Follows BDS FL Course standardized settings
+
+experiment:
+  name: "FedAvg_Baseline"
+  seed: 42
+  category: 1  # Privacy & Inference
+
+federated:
+  algorithm: "FedAvg"
+  num_clients: 10
+  client_fraction: 0.5       # 50% sampled per round
+  num_rounds: 100
+  local_epochs: 5
+  local_batch_size: 32
+
+optimizer:
+  name: "SGD"
+  lr: 0.01
+  momentum: 0.9
+
+loss: "CrossEntropyLoss"
+weight_init: "default"
+
+data:
+  dataset: "CIFAR10"          # Options: MNIST, FMNIST, CIFAR10, CIFAR100
+  partition: "dirichlet"
+  dirichlet_alpha: 0.5        # Options: 0.01, 0.1, 0.5, 1.0, IID
+  num_classes: 10
+
+model:
+  architecture: "SimpleCNN"   # Options: SimpleCNN, ResNet18, AlexNet
+
+attack:
+  enabled: false
+
+logging:
+  save_dir: "results/"
+  plot_every: 10

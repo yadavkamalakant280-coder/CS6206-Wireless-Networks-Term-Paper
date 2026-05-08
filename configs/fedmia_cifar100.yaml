@@ -1,0 +1,45 @@
+# configs/fedmia_cifar100.yaml
+# FedMIA Attack Config — CIFAR-100
+
+experiment:
+  name: "FedMIA_CIFAR100"
+  seed: 42
+  category: 1  # Privacy & Inference
+
+federated:
+  algorithm: "FedAvg"
+  num_clients: 3
+  client_fraction: 0.5
+  num_rounds: 5
+  local_epochs: 5
+  local_batch_size: 32
+
+optimizer:
+  name: "SGD"
+  lr: 0.01
+  momentum: 0.9
+
+loss: "CrossEntropyLoss"
+weight_init: "default"
+
+data:
+  dataset: "CIFAR100"
+  partition: "dirichlet"
+  dirichlet_alpha: 0.5        # Run for: 0.01, 0.1, 0.5, 1.0, IID
+  num_classes: 100
+
+model:
+  architecture: "ResNet18"   # Options: ResNet18, AlexNet
+
+attack:
+  enabled: true
+  method: "FedMIA"            # Options: FedMIA-I, FedMIA-II, Baseline-Loss, GradCosine
+  target_client: 0            # Index of the target client
+  measurement: "grad_cosine"  # FedMIA-II uses grad_cosine; FedMIA-I uses loss
+  sigma_filter: 3.0           # 3-sigma rule for outlier removal
+  threshold: 0.5              # Decision threshold delta
+  fpr_target: 0.001           # TPR @ FPR=0.1%
+
+logging:
+  save_dir: "results/"
+  plot_every: 10

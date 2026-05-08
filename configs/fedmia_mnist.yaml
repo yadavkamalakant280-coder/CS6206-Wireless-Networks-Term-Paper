@@ -1,0 +1,43 @@
+# configs/fedmia_mnist.yaml
+experiment:
+  name: "FedMIA_MNIST"
+  seed: 42
+  category: 1
+
+federated:
+  algorithm: "FedAvg"
+  num_clients: 10
+  client_fraction: 0.5
+  num_rounds: 100
+  local_epochs: 5
+  local_batch_size: 32
+
+optimizer:
+  name: "SGD"
+  lr: 0.01
+  momentum: 0.9
+
+loss: "CrossEntropyLoss"
+weight_init: "default"
+
+data:
+  dataset: "MNIST"
+  partition: "dirichlet"
+  dirichlet_alpha: 0.5
+  num_classes: 10
+
+model:
+  architecture: "SimpleCNN"
+
+attack:
+  enabled: true
+  method: "FedMIA"
+  target_client: 0
+  measurement: "grad_cosine"
+  sigma_filter: 3.0
+  threshold: 0.5
+  fpr_target: 0.001
+
+logging:
+  save_dir: "results/"
+  plot_every: 10

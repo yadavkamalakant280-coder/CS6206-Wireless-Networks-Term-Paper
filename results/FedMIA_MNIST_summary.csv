@@ -1,0 +1,2 @@
+Method,Dataset,#Clients,#Rounds,Test Accuracy (%),Convergence Round,Comm. Cost (MB),AUC,TPR@FPR=0.1%,AttackSuccessRate
+FedMIA,MNIST,10,100,99.23,1,1686.57,0.5000,0.0000,0.5000

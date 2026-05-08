@@ -1,0 +1,12 @@
+flwr
+torch
+torchvision
+numpy
+scikit-learn
+matplotlib
+seaborn
+pandas
+pyyaml
+tqdm
+scipy
+grpcio
