@@ -1,4 +1,4 @@
-# FedMIA — Privacy & Inference Attack in Federated Learning
+# FedMIA: Privacy and Membership Inference Attack in Federated Learning
 
 **Category**: Cat. 1 – Privacy & Inference  
 **Course**: Federated Learning Term Paper | Jan–April 2026 | BDS  
@@ -54,8 +54,8 @@ fedmia_repo/
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/<your-username>/fedmia-fl-privacy
-cd fedmia_repo
+git clone https://github.com/<your-username>/CS6206-Wireless-Networks-Term-Paper
+cd CS6206-Wireless-Networks-Term-Paper
 ```
 
 ### 2. Install Dependencies
