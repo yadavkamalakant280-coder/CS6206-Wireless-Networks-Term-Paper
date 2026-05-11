@@ -108,12 +108,11 @@ python src/client.py --cid 1 --config configs/fedmia_cifar100.yaml
   fit()         fit()       fit()
   evaluate()    evaluate()  evaluate()
 ```
-###  Result
+###  Result:
 
 <img width="842" height="561" alt="image" src="https://github.com/user-attachments/assets/0ade3719-6076-4a31-9951-6cd6930eb200" />
 
-fig: FULL CONSOLIDATED RESULTS: UNIVERSAL + CATEGORY-SPECIFIC METRICS. K = CLIENTS, T = ROUNDS, CONV = CONVERGENCE ROUND, MB =
-COMMUNICATION COST, AUC = MEMBERSHIP INFERENCE AUC, TPR = TPR @ FPR = 0.1%. BEST ATTACK RESULT PER DATASET IN BOLD.
+Fig: Full Consolidated Results: Universal + Category-Specific Metrics. K = Clients, T = Rounds, Conv = Convergence Round, Mb = Communication Cost, Auc = Membership Inference Auc, Tpr = Tpr @ Fpr = 0.1%. Best Attack Result Per Dataset in Bold.
 ---
 
 ## 📈 Outputs (saved to `results/`)
