@@ -1,11 +1,11 @@
 # FedMIA: Privacy and Membership Inference Attack in Federated Learning
 
 **Description**: 
-Federated Learning (FL) [2] has emerged as a promising paradigm for training machine learning models on decentralised data. Rather than pooling raw data on a central server, FL clients train locally and upload only model updates (gradients or parameters). While this approach preserves data locality, it does not guarantee privacy—the shared updates can leak sensitive membership information.
+Federated Learning (FL) has emerged as a promising paradigm for training machine learning models on decentralised data. Rather than pooling raw data on a central server, FL clients train locally and upload only model updates (gradients or parameters). While this approach preserves data locality, it does not guarantee privacy—the shared updates can leak sensitive membership information.
 Membership Inference Attacks (MIAs) seek to determine whether a particular data sample (x, y) was used to train a target client’s local model. In the FL setting, MIAs are typically performed by a semi-honest server. it faithfully runs the protocol but inspects all uploads to infer membership.
 
 **Course**: 
-**Framework**: [Flower (flwr)](https://flower.ai) — gRPC mode
+**Framework**: [Flower (flwr)](https://flower.ai) — gRPC mode ( Google remote procedure call)
 
 
 ---
@@ -99,7 +99,7 @@ python src/client.py --cid 1 --config configs/fedmia_cifar100.yaml
 │    - evaluates global model centrally after each round  │
 │    - runs FedMIA attack after all rounds complete       │
 └───────────────────┬────────────────────────────────────┘
-                    │  gRPC (localhost:8080)
+                    │  gRPC ( Google remote procedure call) (localhost:8080)
         ┌───────────┼───────────┐
         ▼           ▼           ▼
   client.py     client.py   client.py
@@ -108,7 +108,12 @@ python src/client.py --cid 1 --config configs/fedmia_cifar100.yaml
   fit()         fit()       fit()
   evaluate()    evaluate()  evaluate()
 ```
+###  Result
 
+<img width="842" height="561" alt="image" src="https://github.com/user-attachments/assets/0ade3719-6076-4a31-9951-6cd6930eb200" />
+
+fig: FULL CONSOLIDATED RESULTS: UNIVERSAL + CATEGORY-SPECIFIC METRICS. K = CLIENTS, T = ROUNDS, CONV = CONVERGENCE ROUND, MB =
+COMMUNICATION COST, AUC = MEMBERSHIP INFERENCE AUC, TPR = TPR @ FPR = 0.1%. BEST ATTACK RESULT PER DATASET IN BOLD.
 ---
 
 ## 📈 Outputs (saved to `results/`)
@@ -123,3 +128,5 @@ python src/client.py --cid 1 --config configs/fedmia_cifar100.yaml
 | `*_summary.csv` | Mandatory summary table (method, dataset, AUC, TPR@FPR) |
 
 ---
+
+
