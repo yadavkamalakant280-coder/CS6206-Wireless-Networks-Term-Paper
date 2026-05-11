@@ -12,6 +12,10 @@
    - GitHub: https://github.com/Liar-Mask/FedMIA
 
 ---
+## 📄 Data Set Link
+
+ **https://www.cs.toronto.edu/~kriz/cifar.html**
+
 
 ## 🎯 Category Metrics (Cat. 1 – Privacy & Inference)
 
