@@ -1,20 +1,29 @@
 # FedMIA: Privacy and Membership Inference Attack in Federated Learning
 
-**Category**: Cat. 1 – Privacy & Inference  
-**Course**: Federated Learning Term Paper | Jan–April 2026 
-**Framework**: [Flower (flwr)](https://flower.ai) — gRPC mode (no Ray, works on Windows)
+**Description**: 
+Federated Learning (FL) [2] has emerged as a promising paradigm for training machine learning models on decentralised data. Rather than pooling raw data on a central server, FL clients train locally and upload only model updates (gradients or parameters). While this approach preserves data locality, it does not guarantee privacy—the shared updates can leak sensitive membership information.
+Membership Inference Attacks (MIAs) seek to determine whether a particular data sample (x, y) was used to train a target client’s local model. In the FL setting, MIAs are typically performed by a semi-honest server. it faithfully runs the protocol but inspects all uploads to infer membership.
 
----
+**Course**: 
+**Framework**: [Flower (flwr)](https://flower.ai) — gRPC mode
 
-## 📄 Reference Papers
-
-1. **FedMIA**: *An Effective Membership Inference Attack Exploiting "All for One" Principle in Federated Learning* — Zhu et al., CVPR 2025  
-   - GitHub: https://github.com/Liar-Mask/FedMIA
 
 ---
 ## 📄 Data Set Link
 
  **https://www.cs.toronto.edu/~kriz/cifar.html**
+
+###  Attacks
+
+1. Baseline Attacks 
+2. Blackbox-Loss — raw loss threshold (Yeom et al. 2018)
+3. Avg-Cosine — temporal average of gradient cosine similarity (Li et al. 2022)
+4. FedMIA-I (proposed) — uses model loss as measurement
+5. FedMIA-II (proposed) — uses gradient cosine similarity as measurement
+6. Grad-Cosine
+7. Grad-Diff
+8. Loss-Series 
+9. Grad-Norm 
 
 
 ## 🎯 Category Metrics (Cat. 1 – Privacy & Inference)
@@ -22,35 +31,6 @@
 - Attack Success Rate (TPR @ FPR = 0.1%)
 - Membership Inference AUC
 - Reconstruction MSE (for generative tasks)
-
----
-
-## 📁 Repository Structure
-
-```
-fedmia_repo/
-├── README.md
-├── requirements.txt
-├── configs/
-│   ├── fedavg_baseline.yaml       ← universal FedAvg baseline
-│   ├── fedmia_cifar10.yaml
-│   ├── fedmia_cifar100.yaml
-│   └── fedmia_mnist.yaml
-├── src/
-│   ├── run_all.py                 ← ✅ SINGLE COMMAND launcher (start here)
-│   ├── server.py                  ← Flower gRPC server + FedMIA attack
-│   ├── client.py                  ← Flower gRPC NumPyClient
-│   ├── model.py                   ← SimpleCNN, ResNet18, AlexNet
-│   ├── data.py                    ← Dirichlet Non-IID partitioning
-│   ├── utils.py                   ← seed, logging, 300 DPI plots
-│   └── attack/
-│       ├── __init__.py
-│       ├── fedmia.py              ← FedMIA 3-step algorithm (Eq.7–12)
-│       └── metrics.py             ← AUC, TPR@FPR, Attack Success Rate, MSE
-├── results/                       ← auto-populated CSV + PNG outputs
-└── report/
-    └── (place final PDF here)
-```
 
 ---
 
@@ -143,16 +123,3 @@ python src/client.py --cid 1 --config configs/fedmia_cifar100.yaml
 | `*_summary.csv` | Mandatory summary table (method, dataset, AUC, TPR@FPR) |
 
 ---
-
-
-
-## 📌 Notes
-
-- Seeds fixed: `random.seed(42)`, `numpy.seed(42)`, `torch.manual_seed(42)`
-- Framework: Flower (flwr) v1.8.0 — gRPC mode
-- Python: 3.9+ (3.10 recommended)
-- Deep Learning: PyTorch >= 2.0
-"# CS6206-Wireless-Networks-Term-Paper" 
-"# CS6206-Wireless-Networks-Term-Paper" 
-"# CS6206-Wireless-Networks-Term-Paper" 
-"# CS6206-Wireless-Networks-Term-Paper" 
