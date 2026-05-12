@@ -13,6 +13,13 @@ Membership Inference Attacks (MIAs) seek to determine whether a particular data 
 
  **https://www.cs.toronto.edu/~kriz/cifar.html**
 
+ -----------
+### 📄 Youtube Video Link
+
+https://drive.google.com/file/d/1rHR7V80Tso6hdwBRVmlRh3TT6jT6BlZJ/view?usp=sharing
+
+
+---------
 ###  Attacks
 
 1. Baseline Attacks 
